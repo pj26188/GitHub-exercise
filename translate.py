@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
@@ -93,6 +94,16 @@ for record in aa_sequences:
 
 df = pd.DataFrame(results)
 print(df.head())
+
+# -----------------------------
+# Plot sequence length vs molecular weight
+# -----------------------------
+plt.scatter(df["length"], df["molecular_weight"])
+plt.xlabel("Sequence Length (amino acids)")
+plt.ylabel("Molecular Weight (Da)")
+plt.title("Sequence Length vs Molecular Weight")
+plt.tight_layout()
+plt.show()
 
 # -----------------------------
 # END
